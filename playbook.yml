@@ -1,0 +1,19 @@
+---
+- hosts: all
+  tasks:
+    - name: Install list of packages
+      yum: pkg={{item}} state=installed
+      sudo: yes
+      with_items:
+      # - ntp
+      - rubygem-bundler
+      - ruby-devel
+      - libffi-devel
+      - gcc
+      - make
+      - zlib-devel
+      - libxml2-devel
+      - patch
+      - sqlite-devel
+    - name: Run bundle
+      command: bundle install chdir=/vagrant
