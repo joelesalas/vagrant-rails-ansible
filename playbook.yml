@@ -15,5 +15,8 @@
       - libxml2-devel
       - patch
       - sqlite-devel
+      - nodejs
     - name: Run bundle
       command: bundle install chdir=/vagrant
+  roles: 
+    - { role: epel, sudo: yes }
